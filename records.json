@@ -1,0 +1,32 @@
+[
+  {
+    "name": "午餐",
+    "category": "fa-utensils",
+    "date": "2019-01-04",
+    "amount": "200"
+  },
+  {
+    "name": "晚餐",
+    "category": "fa-utensils",
+    "date": "2019-02-04",
+    "amount": "200"
+  },
+  {
+    "name": "計程車-上班",
+    "category": "fa-shuttle-van",
+    "date": "2019-03-23",
+    "amount": "300"
+  },
+  {
+    "name": "電影-終戰",
+    "category": "fa-grin-beam",
+    "date": "2019-04-25",
+    "amount": "250"
+  },
+  {
+    "name": "租金",
+    "category": "fa-home",
+    "date": "2019-06-29",
+    "amount": "8000"
+  }
+]

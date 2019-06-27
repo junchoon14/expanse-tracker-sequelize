@@ -1,0 +1,28 @@
+ .decoration-none {
+  text-decoration: none;
+ }
+
+.total-mount {
+  font-size: 50px;
+  color: rgb(199, 55, 55);
+}
+
+.content {
+  vertical-align: middle;
+  display: inline; 
+}
+
+.cost {
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.category {
+  width: 18%;
+}
+
+.cate-icon {
+  font-size: 50px;
+  color: rgb(73, 122, 196);
+}
+

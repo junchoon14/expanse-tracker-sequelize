@@ -1,0 +1,93 @@
+<div class="container">
+  <form action="/filter" method="GET">
+    <div class="row justify-content-start">
+      <div class="col-4">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="month">月份</label>
+          </div>
+          <select class="custom-select" id="month" name="month" onchange="this.form.submit()">
+            <option value="" {{setSelected '' month}}>選取...</option>
+            <option value="01" {{setSelected '01' month}}>一月</option>
+            <option value="02" {{setSelected '02' month}}>二月</option>
+            <option value="03" {{setSelected '03' month}}>三月</option>
+            <option value="04" {{setSelected '04' month}}>四月</option>
+            <option value="05" {{setSelected '05' month}}>五月</option>
+            <option value="06" {{setSelected '06' month}}>六月</option>
+            <option value="07" {{setSelected '07' month}}>七月</option>
+            <option value="08" {{setSelected '08' month}}>八月</option>
+            <option value="09" {{setSelected '09' month}}>九月</option>
+            <option value="10" {{setSelected '10' month}}>十月</option>
+            <option value="11" {{setSelected '11' month}}>十一月</option>
+            <option value="12" {{setSelected '12' month}}>十二月</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="category">類別</label>
+          </div>
+          <select class="custom-select" id="category" name="category" onchange="this.form.submit()">
+            <option value="" {{setSelected '' cate}}>選取...</option>
+            <option value="fa-home" {{setSelected 'fa-home' cate}}>家居物業</option>
+            <option value="fa-shuttle-van" {{setSelected 'fa-shuttle-van' cate}}>交通出行</option>
+            <option value="fa-grin-beam" {{setSelected 'fa-grin-beam' cate}}>休閒娛樂</option>
+            <option value="fa-utensils" {{setSelected 'fa-utensils' cate}}>餐飲食品</option>
+            <option value="fa-pen" {{setSelected 'fa-pen' cate}}>其他</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="container mt-3">
+  <div class="row justify-content-start">
+    <div class="col-3">總金額：</div>
+    <div class="col-19 total-mount">
+      {{totalAmount}}
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <ul class="list-group">
+    {{#each records}}
+    <div class="row">
+      <div class="col-8 decoration-none">
+        <a href="/records/{{this.id}}">
+          <li class="list-group-item ">
+            <div class="row">
+              <div class="col-auto category">
+                <i class="fas {{this.category}} cate-icon "></i>
+              </div>
+
+              <div class="col-auto mr-auto mb-1">
+                <h4 class="content">{{this.name}}</h4><br>
+                <small>{{this.date}}</small>
+              </div>
+
+              <div class="cost mr-1">
+                {{this.amount}}
+              </div>
+
+          </li>
+        </a>
+      </div>
+
+      <div class="col-4 d-flex align-items-end">
+        <div class="col-auto bg-dark">
+          <a href="/records/{{{this.id}}}/edit" class="btn btn-success">Edit</a>
+          <form action="/records/{{{this.id}}}/delete?_method=DELETE" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</div>
+
+<a href="/records/new" class="btn btn-secondary btn-block mt-5 mb-5">新增項目</a>
